@@ -1,0 +1,25 @@
+<h2>Pessoa selecionada</h2>
+<ul class="people">
+    <li *ngFor="let person of people" (click)="onSelect(person)" [class.selected]="person === selectedPerson">
+    <span class="person-element">
+      <span class="badge">{{person.id}}</span> {{person.name}}
+    </span>
+        <button class="delete-button" (click)="deletePerson(person, $event)">Remover</button>
+    </li>
+</ul>
+
+<div class="error" *ngIf="error">{{error}}</div>
+<button (click)="addPerson()">Adicionar nova pessoa</button>
+<div *ngIf="addingPerson">
+    <my-person-detail (close)="close($event)"></my-person-detail>
+</div>
+
+<div *ngIf="selectedPerson">
+    <h2>
+        {{selectedPerson.name | uppercase}}
+        {{selectedPerson.email}}
+    </h2>
+    <button (click)="gotoDetail()">Editar</button>
+</div>
+
+

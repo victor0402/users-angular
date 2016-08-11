@@ -1,0 +1,16 @@
+<div *ngIf="person">
+    <h2>Dados da pessoa: {{person.name}} - {{person.email}}</h2>
+    <div>
+        <label>id: </label>{{person.id}}
+    </div>
+    <div>
+        <label>nome: </label>
+        <input [(ngModel)]="person.name" placeholder="nome"/>
+    </div>
+    <div>
+        <label>email: </label>
+        <input [(ngModel)]="person.email" placeholder="email"/>
+    </div>
+    <button (click)="goBack()">Voltar</button>
+    <button (click)="save()">Salvar</button>
+</div>
